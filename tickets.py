@@ -451,30 +451,9 @@ def can_exchange(attachments, amount, verify_only):
 #ticket exchange
 def perform_exchange(t_from, t_amount, amount, ticketType, ticketsQuantity, ticketHash):
 
-
-#    attachments = get_asset_attachments()  # [receiver, sender, neo, gas]
-
-
-    Log("t_from")
-    Log(t_from)
-    Log("t_amount")
-    Log(t_amount)
-    Log("amount")
-    Log(amount)
-    Log("ticketType")
-    Log(ticketType)
-    Log("Quantity")
-    Log(ticketsQuantity)
-    Log("ticketHash")
-    Log(ticketHash)
-
-
     exchange_ok = can_exchange(t_amount, amount, False)
 
     if not exchange_ok:
-
-#       if attachments[2] > 0:
-#           OnRefund(attachments[1], attachments[2])
 
         Log("exchange not ok")
         return False
@@ -521,7 +500,6 @@ def perform_exchange(t_from, t_amount, amount, ticketType, ticketsQuantity, tick
 
     to_save = Serialize(deserialized)
     Put('allTickets_key', to_save)
-#   TicketPayed(sender, amount, ticketsQuantity)
     Log("perform exchnage return True")
     return True
                                 
